@@ -10,7 +10,7 @@ root.resizable(False, False)
 def open_files():
     """ функция открытия файлов """
     global files
-    files = filedialog.askopenfilenames(initialdir="E:\Study\Programming\Python-study\size change\output", title="Select files", filetypes = [("Image Files", ("*.jpg", "*.gif",'*png','*.jpeg'))])
+    files = filedialog.askopenfilenames(initialdir="~", title="Select files", filetypes = [("Image Files", ("*.jpg", "*.gif",'*png','*.jpeg'))])
     return files
 
 Label(root,text='Width').place(x=40, y=0)
@@ -53,6 +53,7 @@ def resize_all():
             resize_image(input_image_path=files[i],
                          output_image_path=directory_output+"/"+a[-1],
                          size=(width, height))
+    root.destroy()
 
 
 resize = Button(root,font='Arial 10', text='Изменить размер',command=resize_all).place(x = 175, y = 53)
